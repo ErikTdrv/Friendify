@@ -18,22 +18,23 @@ body{
             gap: 50px;
 
             img{
-                box-shadow: $normal-shadow;
+                
             }
             h1{
                 font-size: 85px;
                 background: linear-gradient(90deg, $blue-color, $red-color);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                text-shadow: $normal-shadow;
+                text-shadow: $white-shadow;
             }
             h3{
                 font-size: 50px;
                 color: $blue-color;
+                width: 500px;
+                margin-right: 50px;
             }
             .startscreen__line{
                 background: linear-gradient(130deg, #ffffff00 0%, $B-text-color 100%);;
-                max-width: 45%;
                 width: 100%;
                 height: 6px;
             }
