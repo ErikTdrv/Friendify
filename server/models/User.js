@@ -25,6 +25,12 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: [6, 'Password must have at least 6 characters!'],
         maxlength: [15, 'Password must not have more than 15 characters!'],
+    },
+    avatarImg: {
+        required: true
+    }, 
+    imageId: {
+        required: true
     }
 });
 
