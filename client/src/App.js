@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import Register from './components/Auth/Register/Register';
 
 function App() {
   return (
-    <div className="App">
+    <div className="Friendify">
      <Register/>
     </div>
   );

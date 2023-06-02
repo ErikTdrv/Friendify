@@ -1,16 +1,33 @@
-// _colors.scss
+// Normal Color variables
 
-// Color variables
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$success-color: #28a745;
-$warning-color: #ffc107;
-$error-color: #dc3545;
+    $blue-color: #4361EE;
+    $purple-color: #684BC2;
+    $red-color: #D11149;
 
-// Background colors
-$background-color: #f8f8f8;
-$dark-background-color: #222222;
 
-// Text colors
-$text-color: #333333;
-$light-text-color: #ffffff;
+// MODIFIED -- Normal Color variables 
+
+    // Light
+    $light-blue-color: #7B8EE7;
+    $light-purple-color: #C3B0FE;
+    $light-red-color: #DE557D;
+
+    // Dark
+    $dark-blue-color: #040E3E;
+    $dark-purple-color: #0E0529;
+    $dark-red-color: #500A1E;
+
+
+// Theme color variables
+
+    // Dark theme
+    $B-background-color: #46484F;
+    $B-dark-background-color: #272932;
+    $B-text-color: #fff;
+
+    // Light theme
+    $L-background-color: #FFFFFF;
+    $L-dark-background-color: #F5F5F5;
+    $L-text-color: #272932;
+
+
