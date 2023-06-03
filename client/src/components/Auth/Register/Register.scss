@@ -53,6 +53,7 @@ body{
             gap: 50px;
 
             .pyramid-container{
+                z-index: 5;
                 padding-top: 100px;
                 padding-right: 20px;
                 width: 30%;
@@ -61,20 +62,24 @@ body{
                 }
             }
             .form-transition {
+                padding-top: 50px;
                 transition: 
                     transform 0.3s ease-in-out,
-                    opacity 0.3s ease
+                    opacity 0.3s ease,
+                    background 0.5s ease,
+                    height 0.5s ease
                 ;
               }
-              
               .form-HIDDEN {
                 transform: translateX(0);
                 opacity: 1;
+                background: #ffffff00;
+                height: 50px;
               }
-              
               .form-VISIBLE {
                 transform: translateX(-100%);
                 opacity: 0;
+                background: #ffffff6f;
               }
               
 
@@ -92,7 +97,7 @@ body{
                     position: absolute;
                     left: 0;
                     right: 0;
-                    top: 50px;
+                    top: 00px;
                     bottom: 0;
     
                     .top-container{
