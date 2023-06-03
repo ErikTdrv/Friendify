@@ -1,50 +1,196 @@
 @import '../../../partials/colors';
 @import '../../../partials/reset';
 @import '../../../partials/shadows';
+@import '../../../partials/animations';
+
 
 body{
-    height: 100vh;
-    max-height: 100%;
-    max-width: 100%;
-    background: linear-gradient(130deg, $dark-blue-color 0%, $dark-purple-color 15%, $dark-red-color 30%, $B-dark-background-color 100%);
+    section.startscreen{
+        overflow: hidden;
+        height: 100vh;
+        max-height: 100%;
+        max-width: 100%;
+        background: linear-gradient(130deg, $dark-blue-color 0%, $dark-purple-color 15%, $dark-red-color 25%, $B-dark-background-color 65%);
 
-    header{
+        header{
 
-        &.startscreen{
-            // background-color: rgba(243, 243, 243, 0.139);
-            padding: 80px 8%;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-
-            img{
+            &.startscreen{
+                // background-color: rgba(243, 243, 243, 0.139);
+                padding: 80px 8%;
+                display: flex;
+                align-items: center;
+                gap: 50px;
+    
+                img{
+                    
+                }
+                h1{
+                    font-size: 85px;
+                    background: linear-gradient(90deg, $blue-color, $red-color);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    text-shadow: $white-shadow;
+                }
+                h3{
+                    font-size: 50px;
+                    color: $blue-color;
+                    width: 500px;
+                    margin-right: 50px;
+                }
+                .startscreen__line{
+                    background: linear-gradient(130deg, #ffffff00 0%, $B-text-color 100%);;
+                    width: 100%;
+                    height: 6px;
+                }
                 
             }
-            h1{
-                font-size: 85px;
-                background: linear-gradient(90deg, $blue-color, $red-color);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                text-shadow: $white-shadow;
-            }
-            h3{
-                font-size: 50px;
-                color: $blue-color;
-                width: 500px;
-                margin-right: 50px;
-            }
-            .startscreen__line{
-                background: linear-gradient(130deg, #ffffff00 0%, $B-text-color 100%);;
-                width: 100%;
-                height: 6px;
-            }
-            
+    
         }
+        .content{
+            // background-color: rgba(255, 255, 255, 0.158);
+            margin: 0px 8%;
+            display: flex;
+            gap: 50px;
 
+            .pyramid-container{
+                padding-top: 100px;
+                padding-right: 20px;
+                width: 30%;
+                img{
+                    width: 100%;
+                }
+            }
+            .form-transition {
+                transition: 
+                    transform 0.3s ease-in-out,
+                    opacity 0.3s ease
+                ;
+              }
+              
+              .form-HIDDEN {
+                transform: translateX(0);
+                opacity: 1;
+              }
+              
+              .form-VISIBLE {
+                transform: translateX(-100%);
+                opacity: 0;
+              }
+              
+
+            .forms-container{
+                position: relative;
+                width: 835px;
+                height: 55vh;
+                background: linear-gradient(90deg, #ffffff00 0%, #ffffff32 100%);
+                backdrop-filter: blur(50px);
+                form{
+                    
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 50px;
+                    bottom: 0;
+    
+                    .top-container{
+                        width: 100%;
+                        columns: 2;
+                        gap: 50px;
+    
+                        .input-container{
+                            display: flex;
+                            flex-direction: column;
+                            width: 300px;
+                            gap: 20px;
+                            margin-bottom: 40px;
+                            position: relative;
+    
+                            label{
+                                color: $red-color;
+                                font-size: 20px;
+                                font-weight: bold;
+                                span{
+                                    color: $blue-color;
+                                 }
+                            }
+                            input{
+                                color: $B-text-color;
+                                font-size: 16px;
+                                background: none;
+                                padding: 10px 0;
+                                border: none;
+                                outline: none;
+                                display: inline-block;
+                            }
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 3px;
+                                background-size: 200% 100%;
+                                background-image: linear-gradient(to right, #fff, $light-purple-color, #fff);
+                                animation: underlineAnimation 5s linear infinite;
+                            }
+                        }
+                        .input-container:nth-child(even){
+                            label{
+                                color: $blue-color;
+                                span{
+                                   color: $red-color;
+                                }
+                            }
+                        }
+                    }
+    
+                    .bottom-container{
+                        padding-top: 50px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: end;
+                        a{
+                            cursor: pointer;
+                            color: $light-purple-color;    
+                            text-decoration: none;
+                            transition: text-decoration 5s ease;
+            
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                        input[type="submit"]{
+                            cursor: pointer;
+                            background: #ffffff00;
+                            border: 3px solid #Fff;
+                            border-radius: 10px;
+                            color: #fff;
+                            padding: 8px 30px;
+                            font-weight: bold;
+                            font-size: 18px;
+                            transition: 
+                                background 0.3s ease,
+                                color 0.3s ease,
+                                border 0.3s ease,
+                                shadow 0.3s ease
+                            ;
+    
+                            &:hover{
+                                background: $L-dark-background-color;
+                                color: $L-text-color;
+                                border: 3px solid $L-background-color;
+                                box-shadow: $normal-shadow;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-    .register {
-        color: white;
-    }
+    
 }
 
 
