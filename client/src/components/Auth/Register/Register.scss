@@ -98,7 +98,9 @@ body{
                     right: 0;
                     top: 00px;
                     bottom: 0;
-    
+                    input[type='file'] {
+                        display: none;
+                    }
                     .top-container{
                         width: 100%;
                         columns: 2;
@@ -166,7 +168,7 @@ body{
                                 text-decoration: underline;
                             }
                         }
-                        input[type="submit"]{
+                        input[type="button"]{
                             cursor: pointer;
                             background: #ffffff00;
                             border: 3px solid #Fff;
