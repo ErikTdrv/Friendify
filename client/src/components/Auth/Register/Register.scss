@@ -161,7 +161,6 @@ body{
                             }
                         }
                     }
-    
                     .bottom-container{
                         padding-top: 50px;
                         display: flex;
@@ -179,6 +178,13 @@ body{
                             &:hover{
                                 text-decoration: underline;
                             }
+
+                            &.btn-HIDDEN{ display: none;}
+                        }
+                        .__2 {
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
                         }
                         input[type="button"], 
                         input[type="submit"]{
@@ -208,6 +214,14 @@ body{
                             background-color: lightgreen;
                             color: darkgreen;
                             border: 3px solid lightgreen;
+                        }
+                    }
+                    .second{
+                        columns: 2;
+                        >*{ overflow: hidden; }
+                        .profile-picture{
+                            display: flex;
+                            flex-direction: column;
                         }
                     }
                 }

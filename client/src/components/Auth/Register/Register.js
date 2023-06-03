@@ -85,25 +85,58 @@ export default function Register() {
                 )}
                 {isNextClicked && (
                   <div className='second'>
-                    {authData.profilePicture && <img src={authData.profilePicture} alt="invalid picture" />}
-                    <label htmlFor="profilepicture">
-                      Add Profile Picture
-                      <input type='file' id='profilepicture'
-                        onChange={async (e) => {
-                          if (e.target.files[0]) {
-                            setAuthData({
-                              ...authData,
-                              profilePicture: await convertToBase64(e.target.files[0]),
-                            });
-                          }
-                        }}
-                      ></input></label>
+                    <div className='profile-picture'>
+                        <label>Profile picture</label>
+                        {authData.profilePicture ? (
+                        <div
+                            className="profile-image"
+                            style={{ 
+                                width: '200px', 
+                                height: '200px', 
+                                backgroundImage: `url(${authData.profilePicture})`, 
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                borderRadius: '50%' }}
+                        ></div>
+                        ) : (
+                        <div
+                            className="placeholder-image"
+                            style={{ 
+                                width: '200px', 
+                                height: '200px', 
+                                backgroundColor: '#fff2', 
+                                borderRadius: '50%',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                fontSize: '30px',
+                                color: '#fff'
+                            }}
+                        >
+                            <h2>???</h2>
+                        </div>
+                        )}
+
+                        <label className='add' htmlFor="profilepicture">
+                        <span>+</span>Add Profile Picture
+                        <input type='file' id='profilepicture'
+                            onChange={async (e) => {
+                            if (e.target.files[0]) {
+                                setAuthData({
+                                ...authData,
+                                profilePicture: await convertToBase64(e.target.files[0]),
+                                });
+                            }
+                            }}
+                        />
+                        </label>
+                    </div>
                   </div>
                 )}
                 <div className='bottom-container'>
-                  <a onClick={() => setIsLogin(false)}>Do you already have an account? <span>Login in here!</span></a>
+                  <a onClick={() => setIsLogin(false)} className={`switch-btn ${isNextClicked ? 'btn-HIDDEN' : 'btn-VISIBLE'}`}> Do you already have an account? <span>Login in here!</span></a>
                   {isNextClicked ? (
-                    <div className='btns-container'>
+                    <div className='__2'>
                         <input
                             type='button'
                             value='Back'
