@@ -64,7 +64,7 @@ export default function Register() {
                         onChange={(e) => setAuthData({ ...authData, nationality: e.target.value })}
                       />
                     </div>
-                    <div className='input-container first-name'>
+                    <div className='input-container password'>
                       <label>Password <span>*</span></label>
                       <input
                         type="password"
@@ -72,7 +72,7 @@ export default function Register() {
                         onChange={(e) => setAuthData({ ...authData, password: e.target.value })}
                       />
                     </div>
-                    <div className='input-container first-name'>
+                    <div className='input-container repeat-password'>
                       <label>Repeat password <span>*</span></label>
                       <input
                         type="password"
@@ -84,33 +84,25 @@ export default function Register() {
                   </div>
                 )}
                 {isNextClicked && (
+                    <h2 className='title'>Optional credentials ( changeable later )</h2>
+                )}
+                {isNextClicked && (
+
                   <div className='second'>
                     <div className='profile-picture'>
                         <label>Profile picture</label>
                         {authData.profilePicture ? (
                         <div
-                            className="profile-image"
+                            className="image"
                             style={{ 
-                                width: '200px', 
-                                height: '200px', 
                                 backgroundImage: `url(${authData.profilePicture})`, 
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                                borderRadius: '50%' }}
+                             }}
                         ></div>
                         ) : (
                         <div
-                            className="placeholder-image"
+                            className="image PH"
                             style={{ 
-                                width: '200px', 
-                                height: '200px', 
-                                backgroundColor: '#fff2', 
-                                borderRadius: '50%',
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                fontSize: '30px',
-                                color: '#fff'
+
                             }}
                         >
                             <h2>???</h2>
@@ -118,7 +110,7 @@ export default function Register() {
                         )}
 
                         <label className='add' htmlFor="profilepicture">
-                        <span>+</span>Add Profile Picture
+                        <span>+</span> Add Profile Picture
                         <input type='file' id='profilepicture'
                             onChange={async (e) => {
                             if (e.target.files[0]) {
@@ -130,6 +122,28 @@ export default function Register() {
                             }}
                         />
                         </label>
+                    </div>
+
+                    <div className='right-side'>
+                        <div className='input-container gender'>
+                            <label>Gender</label>
+                            <select
+                                value={authData.gender}
+                                onChange={(e) => setAuthData({ ...authData, gender: e.target.value })}
+                            >
+                                <option value="">Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Dog</option>
+                            </select>
+                        </div>
+                        <div className='input-container first-name'>
+                            <label>Date of birth</label>
+                            <input
+                                type="date"
+                                onChange={(e) => setAuthData({ ...authData, date: e.target.value })}
+                            />
+                        </div>
                     </div>
                   </div>
                 )}

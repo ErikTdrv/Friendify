@@ -99,6 +99,12 @@ body{
                     top: 0px;
                     bottom: 0;
 
+                    .register,
+                    .login{
+                        width: 100%;
+                        padding: 10px 60px;
+                    }
+
                     &:nth-child(1){
                         position: relative;
                     }
@@ -115,7 +121,7 @@ body{
                             display: flex;
                             flex-direction: column;
                             overflow: hidden;
-                            width: 300px;
+                            width: 100%;
                             gap: 20px;
                             margin-bottom: 40px;
                             position: relative;
@@ -189,10 +195,10 @@ body{
                         input[type="button"], 
                         input[type="submit"]{
                             cursor: pointer;
-                            background: #ffffff00;
-                            border: 3px solid #Fff;
+                            background: #6b86ff24;
+                            border: 3px solid $L-background-color;
                             border-radius: 10px;
-                            color: #fff;
+                            color: $L-background-color;
                             padding: 8px 30px;
                             font-weight: bold;
                             font-size: 18px;
@@ -210,18 +216,55 @@ body{
                                 box-shadow: $normal-shadow;
                             }
                         }
-                        input[type="submit"]:hover{
-                            background-color: lightgreen;
-                            color: darkgreen;
-                            border: 3px solid lightgreen;
+                        input[type="submit"]{
+                            background-color: rgba(0, 128, 0, 0.174);
+                            &:hover{
+                                background-color: lightgreen;
+                                color: darkgreen;
+                                border: 3px solid lightgreen;
+                            }
                         }
                     }
+                    h2.title{ color: $L-background-color; font-size: 18px; margin-bottom: 20px}
                     .second{
                         columns: 2;
                         >*{ overflow: hidden; }
                         .profile-picture{
                             display: flex;
                             flex-direction: column;
+                            gap: 20px;
+
+                            label{
+                                color: $red-color;
+                                font-size: 24px;
+                                font-weight: bold;
+
+                                &.add{
+                                    color: $L-background-color;
+                                    font-size: 16px;
+                                    text-decoration: underline;
+                                    cursor: pointer;
+                                    transition: color 0.2s ease;
+                                    &:hover{color: #fff7;}
+                                }
+                            }
+
+                            *.image{
+                                width: 150px;
+                                height: 150px;
+                                border-radius: 50%;
+                                background-size: cover;
+                                background-position: center;
+
+                                &.PH{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    font-size: 30px;
+                                    color: $L-background-color;
+                                    background: #fff2;
+                                }
+                            }
                         }
                     }
                 }
