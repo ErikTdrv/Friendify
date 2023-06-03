@@ -46,7 +46,7 @@ export default function Register() {
                             />
                         </div>
                         <div className='input-container nationality'>
-                            <label>Nationality name <span>*</span></label>
+                            <label>Nationality <span>*</span></label>
                             <input 
                                 type="text" 
                                 placeholder='Fill in ur nationality ...'
@@ -55,14 +55,14 @@ export default function Register() {
                         <div className='input-container first-name'>
                             <label>Password <span>*</span></label>
                             <input 
-                                type="text" 
+                                type="password" 
                                 placeholder='Fill in ur password ...'
                             />
                         </div>
                         <div className='input-container first-name'>
                             <label>Repeat password <span>*</span></label>
                             <input 
-                                type="text" 
+                                type="password" 
                                 className="first-name"
                                 placeholder='repeat ur password ...'
                             />
