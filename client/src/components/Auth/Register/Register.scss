@@ -63,6 +63,7 @@ body{
             }
             .form-transition {
                 padding-top: 50px;
+                padding-bottom: 50px;
                 transition: 
                     transform 0.3s ease-in-out,
                     opacity 0.3s ease,
@@ -85,19 +86,23 @@ body{
             .forms-container{
                 position: relative;
                 width: 835px;
-                height: 55vh;
+                height: 100%;
                 background: linear-gradient(90deg, #ffffff00 0%, #ffffff32 100%);
                 backdrop-filter: blur(50px);
                 form{
-                    
                     overflow: hidden;
                     display: flex;
                     justify-content: center;
                     position: absolute;
                     left: 0;
                     right: 0;
-                    top: 00px;
+                    top: 0px;
                     bottom: 0;
+
+                    &:nth-child(1){
+                        position: relative;
+                    }
+
                     input[type='file'] {
                         display: none;
                     }
@@ -131,6 +136,9 @@ body{
                                 border: none;
                                 outline: none;
                                 display: inline-block;
+                                &::placeholder{
+                                    color: #aaaaaa;
+                                }
                             }
                             &:after {
                                 content: "";
@@ -164,12 +172,16 @@ body{
                             color: $light-purple-color;    
                             text-decoration: none;
                             transition: text-decoration 5s ease;
-                            margin-bottom: 20px;
+
+                            span{
+                                color: #ffffff;
+                            }
                             &:hover{
                                 text-decoration: underline;
                             }
                         }
-                        input[type="button"]{
+                        input[type="button"], 
+                        input[type="submit"]{
                             cursor: pointer;
                             background: #ffffff00;
                             border: 3px solid #Fff;
@@ -191,6 +203,11 @@ body{
                                 border: 3px solid $L-background-color;
                                 box-shadow: $normal-shadow;
                             }
+                        }
+                        input[type="submit"]:hover{
+                            background-color: lightgreen;
+                            color: darkgreen;
+                            border: 3px solid lightgreen;
                         }
                     }
                 }

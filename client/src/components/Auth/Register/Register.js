@@ -29,7 +29,7 @@ export default function Register() {
         <div className='forms-container'>
           {isLogin !== undefined ? (
             <form className={`form-transition ${isLogin ? 'form-HIDDEN' : 'form-VISIBLE'}`}>
-              <div className='first'>
+              <div className='register'>
                 {!isNextClicked && (
                   <div className='top-container'>
                     <div className='input-container first-name'>
@@ -77,29 +77,12 @@ export default function Register() {
                       <input
                         type="password"
                         className="first-name"
-                        placeholder='repeat ur password ...'
+                        placeholder='Repeat ur password ...'
                         onChange={(e) => setAuthData({ ...authData, repeatPassword: e.target.value })}
                       />
                     </div>
                   </div>
                 )}
-                <div className='bottom-container'>
-                  <a onClick={() => setIsLogin(false)}>Don't you have an account? Register here</a>
-                  {isNextClicked ? (
-                    <input
-                      type='button'
-                      value='Previous'
-                      onClick={() => setIsNextClicked(false)}
-                      onChange={() => setAuthData({ ...authData, })}
-                    />) : (
-                    <input
-                      type='button'
-                      value='Next'
-                      onClick={() => setIsNextClicked(true)}
-                      onChange={() => setAuthData({ ...authData, })}
-                    />)
-                  }
-                </div>
                 {isNextClicked && (
                   <div className='second'>
                     {authData.profilePicture && <img src={authData.profilePicture} alt="invalid picture" />}
@@ -117,6 +100,30 @@ export default function Register() {
                       ></input></label>
                   </div>
                 )}
+                <div className='bottom-container'>
+                  <a onClick={() => setIsLogin(false)}>Do you already have an account? <span>Login in here!</span></a>
+                  {isNextClicked ? (
+                    <div className='btns-container'>
+                        <input
+                            type='button'
+                            value='Back'
+                            onClick={() => setIsNextClicked(false)}
+                            onChange={() => setAuthData({ ...authData, })}
+                        />
+                        <input
+                            type='submit'
+                            value='Register'
+                        />
+                        </div>
+                    ) : (
+                    <input
+                      type='button'
+                      value='Next'
+                      onClick={() => setIsNextClicked(true)}
+                      onChange={() => setAuthData({ ...authData, })}
+                    />)
+                  }
+                </div>
               </div>
 
             </form>
@@ -141,7 +148,7 @@ export default function Register() {
                   </div>
                 </div>
                 <div className='bottom-container'>
-                  <a onClick={() => setIsLogin(true)}>Do you already have an account? Login in here</a>
+                  <a onClick={() => setIsLogin(true)}>Don't you have an account? <span>Register here!</span></a>
                   <input
                     type='submit'
                     value='Login'
