@@ -13,7 +13,12 @@ export default function Register() {
         <img src={darkLogo} alt="Dark Friendify Logo" />
         <h1>Friendify</h1>
         <div className="startscreen__line"></div>
-        <h3>Sign up</h3> 
+        {isLogin ? (
+            <h3>Sign up</h3> 
+        ) : (
+            <h3>Login</h3> 
+        )}
+    
       </header>
       <div className='content'>
         <div className='pyramid-container'>
@@ -81,8 +86,38 @@ export default function Register() {
             ) : null }
             {isLogin !== undefined ? (
                 <form className={`form-transition ${isLogin ? 'form-VISIBLE' : 'form-HIDDEN'}`}>
-                    <div className='bottom-container'>
+                    <div className='login'>
+                        <div className='top-container'>
+                            <div className='input-container first-name'>
+                                <label>First name <span>*</span></label>
+                                <input 
+                                    type="text" 
+                                    placeholder='Fill in ur first name ...'
+                                />
+                            </div>
+                            <div className='input-container first-name'>
+                            <label>Password <span>*</span></label>
+                            <input 
+                                type="text" 
+                                placeholder='Fill in ur password ...'
+                            />
+                            </div>
+                            <div className='input-container first-name'>
+                                <label>Repeat password <span>*</span></label>
+                                <input 
+                                    type="text" 
+                                    className="first-name"
+                                    placeholder='repeat ur password ...'
+                                />
+                            </div>
+                        </div>
+                        <div className='bottom-container'>
                         <a onClick={() => setIsLogin(true)}>Do you already have an account? Login in here</a>
+                        <input
+                            type='submit'
+                            value='Login'
+                        />
+                        </div>
                     </div>
                 </form>
             ) : null }

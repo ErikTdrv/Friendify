@@ -107,6 +107,7 @@ body{
                         .input-container{
                             display: flex;
                             flex-direction: column;
+                            overflow: hidden;
                             width: 300px;
                             gap: 20px;
                             margin-bottom: 40px;
