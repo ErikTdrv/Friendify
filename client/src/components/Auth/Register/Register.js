@@ -7,6 +7,7 @@ import './Register.scss';
 export default function Register() {
   const [isLogin, setIsLogin] = useState(true);
   const [isNextClicked, setIsNextClicked] = useState(false);
+  const [authData, setAuthData] = useState({ firstName: '', lastName: '', email: '', nationality: '', password: '', repeatPassword: '' });
   return (
     <section className="startscreen">
       <header className="startscreen">
@@ -35,6 +36,7 @@ export default function Register() {
                       <input
                         type="text"
                         placeholder='Fill in ur first name ...'
+                        onChange={(e) => setAuthData({ ...authData, firstName: e.target.value })}
                       />
                     </div>
                     <div className='input-container last-name'>
@@ -42,6 +44,7 @@ export default function Register() {
                       <input
                         type="text"
                         placeholder='Fill in ur last name ...'
+                        onChange={(e) => setAuthData({ ...authData, lastName: e.target.value })}
                       />
                     </div>
                     <div className='input-container email'>
@@ -49,6 +52,7 @@ export default function Register() {
                       <input
                         type="text"
                         placeholder='Fill in ur email ...'
+                        onChange={(e) => setAuthData({ ...authData, email: e.target.value })}
                       />
                     </div>
                     <div className='input-container nationality'>
@@ -56,6 +60,7 @@ export default function Register() {
                       <input
                         type="text"
                         placeholder='Fill in ur nationality ...'
+                        onChange={(e) => setAuthData({ ...authData, nationality: e.target.value })}
                       />
                     </div>
                     <div className='input-container first-name'>
@@ -63,6 +68,7 @@ export default function Register() {
                       <input
                         type="password"
                         placeholder='Fill in ur password ...'
+                        onChange={(e) => setAuthData({ ...authData, password: e.target.value })}
                       />
                     </div>
                     <div className='input-container first-name'>
@@ -71,6 +77,7 @@ export default function Register() {
                         type="password"
                         className="first-name"
                         placeholder='repeat ur password ...'
+                        onChange={(e) => setAuthData({ ...authData, repeatPassword: e.target.value })}
                       />
                     </div>
                   </div>
@@ -82,21 +89,27 @@ export default function Register() {
                       type='button'
                       value='Previous'
                       onClick={() => setIsNextClicked(false)}
+                      onChange={() => setAuthData({ ...authData, })}
                     />) : (
                     <input
                       type='button'
                       value='Next'
                       onClick={() => setIsNextClicked(true)}
+                      onChange={() => setAuthData({ ...authData, })}
                     />)
                   }
                 </div>
                 {isNextClicked && (
-                <div className='second'>
-                  <label htmlFor="profilepicture">Add Profile Picture<input type='file' id='profilepicture'></input></label>
-                </div>
-              )}
+                  <div className='second'>
+                    <label htmlFor="profilepicture">
+                      Add Profile Picture
+                      <input type='file' id='profilepicture'
+
+                      ></input></label>
+                  </div>
+                )}
               </div>
-              
+
             </form>
           ) : null}
           {isLogin !== undefined ? (
