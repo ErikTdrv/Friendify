@@ -7,7 +7,7 @@ export default function Register(){
         <body>
             <header class="startscreen">
                 <img src={darkLogo} alt="Dark Friendify Logo" />
-                <h1>Friendify</h1>
+                <h1>Friendifys</h1>
                 <div class="startscreen__line"></div>
                 <h3>Sign up</h3>
             </header>
