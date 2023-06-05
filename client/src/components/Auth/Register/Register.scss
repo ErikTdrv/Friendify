@@ -267,6 +267,66 @@ body{
                             }
                         }
                     }
+                    .right-side{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 70px;
+
+                        .input-container{
+                            display: grid;
+                            gap: 12px;
+                            position: relative;
+                            width: 100%;
+
+                            label{color: $blue-color; font-weight: bold; font-size: 24px;}
+                            input {
+                                padding: 10px 10px;
+                                color: #fff;
+                                background-color: #ffffff00;
+                                border: none;
+                                outline: none;
+                                border-bottom: 2px solid #fff;
+                                font-size: 17px;
+                            
+                                /* Remove the calendar icon */
+                                &::-webkit-calendar-picker-indicator {
+                                  position: relative;
+                                  width: 65%;
+                                  z-index: 1; /* Set a lower z-index value for the indicator */
+                                  background-color: rgba(173, 216, 230, 0);
+                                  opacity: 0;
+                                }
+                            }
+                             select {
+                                padding: 10px 10px;
+                                width: 100%;
+                                border: none;
+                                border-radius: 10px;
+                                outline: none;
+                                font-size: 15px;
+                                font-weight: bold;
+                                color: $B-dark-background-color;
+                                appearance: none;
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+
+                                /* Custom down arrow */
+                                background-image: url("\assets\dropdown-arrow.svg");
+                                background-repeat: no-repeat;
+                                background-position: 95% center;
+                                background-size: 20px;
+                                /* Styling options */
+                                option {
+                                border-radius: 10px;
+
+                                &:hover {
+                                    background: $blue-color;
+                                    color: #ff0000;
+                                }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -141,6 +141,7 @@ export default function Register() {
                             <label>Date of birth</label>
                             <input
                                 type="date"
+                                class="custom-date-input"
                                 onChange={(e) => setAuthData({ ...authData, date: e.target.value })}
                             />
                         </div>
