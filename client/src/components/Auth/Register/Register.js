@@ -201,7 +201,7 @@ export default function Register() {
                   <div className='input-container first-name'>
                     <label>Password <span>*</span></label>
                     <input
-                      type="text"
+                      type="password"
                       placeholder='Fill in ur password ...'
                       onChange={(e) => setAuthData({...authData, password: e.target.value})}
                     />
