@@ -8,7 +8,7 @@ import { convertToBase64 } from '../../../services/utilService';
 export default function Register() {
   const [isLogin, setIsLogin] = useState(true);
   const [isNextClicked, setIsNextClicked] = useState(false);
-  const [authData, setAuthData] = useState({ firstName: '', lastName: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '', gender: '', dateOfBirth: '' });
+  const [authData, setAuthData] = useState({ fullName: '', nickname: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '', gender: '', dateOfBirth: '' });
   return (
     <section className="startscreen">
       <header className="startscreen">
@@ -33,19 +33,19 @@ export default function Register() {
                 {!isNextClicked && (
                   <div className='top-container'>
                     <div className='input-container first-name'>
-                      <label>First name <span>*</span></label>
+                      <label>Full Name <span>*</span></label>
                       <input
                         type="text"
-                        placeholder='Fill in ur first name ...'
-                        onChange={(e) => setAuthData({ ...authData, firstName: e.target.value })}
+                        placeholder='Fill in ur full name ...'
+                        onChange={(e) => setAuthData({ ...authData, fullName: e.target.value })}
                       />
                     </div>
                     <div className='input-container last-name'>
-                      <label>Last name <span>*</span></label>
+                      <label>Nickname <span>*</span></label>
                       <input
                         type="text"
-                        placeholder='Fill in ur last name ...'
-                        onChange={(e) => setAuthData({ ...authData, lastName: e.target.value })}
+                        placeholder='Fill in ur nickname ...'
+                        onChange={(e) => setAuthData({ ...authData, nickname: e.target.value })}
                       />
                     </div>
                     <div className='input-container email'>
