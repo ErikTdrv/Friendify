@@ -4,95 +4,104 @@
 @import '../../partials/animations';
 
 
-body{
-    section.startscreen{
+body {
+    section.startscreen {
         overflow: hidden;
         height: 100vh;
         max-height: 100%;
         max-width: 100%;
         background: linear-gradient(130deg, $dark-blue-color 0%, $dark-purple-color 15%, $dark-red-color 25%, $B-dark-background-color 65%);
 
-        header{
+        header {
 
-            &.startscreen{
+            &.startscreen {
                 // background-color: rgba(243, 243, 243, 0.139);
                 padding: 80px 8%;
                 display: flex;
                 align-items: center;
                 gap: 50px;
-    
-                .logo{
+
+                .logo {
                     display: flex;
                     justify-content: space-between;
                     gap: 50px;
                     width: 30%;
                 }
-                h1{
+
+                h1 {
                     font-size: 85px;
                     background: linear-gradient(90deg, $blue-color, $red-color);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     text-shadow: $white-shadow;
                 }
-                h3{
+
+                h3 {
                     font-size: 50px;
                     color: $blue-color;
                     width: 500px;
                     margin-right: 50px;
                 }
-                .startscreen__line{
-                    background: linear-gradient(130deg, #ffffff00 0%, $B-text-color 100%);;
+
+                .startscreen__line {
+                    background: linear-gradient(130deg, #ffffff00 0%, $B-text-color 100%);
+                    ;
                     width: 100%;
                     height: 6px;
                 }
-                
+
             }
-    
+
         }
-        .content{
+
+        .content {
             // background-color: rgba(255, 255, 255, 0.158);
             margin: 0px 8%;
             display: flex;
             gap: 50px;
 
-            .pyramid-container{
+            .pyramid-container {
                 z-index: 5;
                 padding-top: 100px;
                 padding-right: 20px;
                 width: 45vw;
-                img{
+
+                img {
                     width: 100%;
                 }
             }
+
             .form-transition {
                 padding-top: 50px;
                 padding-bottom: 50px;
-                transition: 
+                transition:
                     transform 0.3s ease-in-out,
                     opacity 0.3s ease,
-                    background 0.5s ease
-                ;
-              }
-              .form-HIDDEN {
+                    background 0.5s ease;
+            }
+
+            .form-HIDDEN {
                 transform: translateX(0);
                 opacity: 1;
                 background: #ffffff00;
-                
-              }
-              .form-VISIBLE {
+
+            }
+
+            .form-VISIBLE {
                 transform: translateX(-100%);
                 opacity: 0;
                 background: #ffffff6f;
-              }
-              
+            }
 
-            .forms-container{
+
+            .forms-container {
                 position: relative;
                 width: 100%;
                 height: 100%;
                 background: linear-gradient(90deg, #ffffff00 0%, #ffffff32 100%);
                 backdrop-filter: blur(50px);
-                form{
+
+                form {
                     overflow: hidden;
                     display: flex;
                     justify-content: center;
@@ -103,24 +112,25 @@ body{
                     bottom: 0;
 
                     .register,
-                    .login{
+                    .login {
                         width: 100%;
                         padding: 10px 60px;
                     }
 
-                    &:nth-child(1){
+                    &:nth-child(1) {
                         position: relative;
                     }
 
                     input[type='file'] {
                         display: none;
                     }
-                    .top-container{
+
+                    .top-container {
                         width: 100%;
                         columns: 2;
                         gap: 50px;
-    
-                        .input-container{
+
+                        .input-container {
                             display: flex;
                             flex-direction: column;
                             overflow: hidden;
@@ -128,16 +138,18 @@ body{
                             gap: 20px;
                             margin-bottom: 40px;
                             position: relative;
-    
-                            label{
+
+                            label {
                                 color: $red-color;
                                 font-size: 20px;
                                 font-weight: bold;
-                                span{
+
+                                span {
                                     color: $blue-color;
-                                 }
+                                }
                             }
-                            input{
+
+                            input {
                                 color: $B-text-color;
                                 font-size: 16px;
                                 background: none;
@@ -145,10 +157,12 @@ body{
                                 border: none;
                                 outline: none;
                                 display: inline-block;
-                                &::placeholder{
+
+                                &::placeholder {
                                     color: #aaaaaa;
                                 }
                             }
+
                             &:after {
                                 content: "";
                                 position: absolute;
@@ -161,43 +175,56 @@ body{
                                 animation: underlineAnimation 5s linear infinite;
                             }
                         }
-                        .input-container:nth-child(even){
-                            label{
+
+                        .input-container:nth-child(even) {
+                            label {
                                 color: $blue-color;
-                                span{
-                                   color: $red-color;
+
+                                span {
+                                    color: $red-color;
                                 }
                             }
                         }
                     }
-                    .login .top-container{ columns: 1; width: 100%;}
-                    .bottom-container{
+
+                    .login .top-container {
+                        columns: 1;
+                        width: 100%;
+                    }
+
+                    .bottom-container {
                         padding-top: 50px;
                         display: flex;
                         justify-content: space-between;
                         align-items: end;
+
                         a {
                             cursor: pointer;
-                            color: $light-purple-color;    
+                            color: $light-purple-color;
                             text-decoration: none;
                             transition: text-decoration 5s ease;
 
-                            span{
+                            span {
                                 color: #ffffff;
                             }
-                            &:hover{
+
+                            &:hover {
                                 text-decoration: underline;
                             }
 
-                            &.btn-HIDDEN{ display: none;}
+                            &.btn-HIDDEN {
+                                display: none;
+                            }
                         }
+
                         .__2 {
                             width: 100%;
                             display: flex;
                             justify-content: space-between;
                         }
-                        input[type="button"], 
-                        input[type="submit"]{
+
+                        input[type="button"],
+                        input[type="submit"] {
                             cursor: pointer;
                             background: #6b86ff24;
                             border: 3px solid $L-background-color;
@@ -206,61 +233,75 @@ body{
                             padding: 8px 30px;
                             font-weight: bold;
                             font-size: 18px;
-                            transition: 
+                            transition:
                                 background 0.3s ease,
                                 color 0.3s ease,
                                 border 0.3s ease,
-                                shadow 0.3s ease
-                            ;
-    
-                            &:hover{
+                                shadow 0.3s ease;
+
+                            &:hover {
                                 background: $L-dark-background-color;
                                 color: $L-text-color;
                                 border: 3px solid $L-background-color;
                                 box-shadow: $normal-shadow;
                             }
                         }
-                        input[type="submit"]{
+
+                        input[type="submit"] {
                             background-color: rgba(0, 128, 0, 0.174);
-                            &:hover{
+
+                            &:hover {
                                 background-color: lightgreen;
                                 color: darkgreen;
                                 border: 3px solid lightgreen;
                             }
                         }
                     }
-                    h2.title{ color: $L-background-color; font-size: 18px; margin-bottom: 20px}
-                    .second{
+
+                    h2.title {
+                        color: $L-background-color;
+                        font-size: 18px;
+                        margin-bottom: 20px
+                    }
+
+                    .second {
                         columns: 2;
-                        >*{ overflow: hidden; }
-                        .profile-picture{
+
+                        >* {
+                            overflow: hidden;
+                        }
+
+                        .profile-picture {
                             display: flex;
                             flex-direction: column;
                             gap: 20px;
 
-                            label{
+                            label {
                                 color: $red-color;
                                 font-size: 24px;
                                 font-weight: bold;
 
-                                &.add{
+                                &.add {
                                     color: $L-background-color;
                                     font-size: 16px;
                                     text-decoration: underline;
                                     cursor: pointer;
                                     transition: color 0.2s ease;
-                                    &:hover{color: #fff7;}
+
+                                    &:hover {
+                                        color: #fff7;
+                                    }
                                 }
                             }
 
-                            *.image{
+                            *.image {
                                 width: 150px;
                                 height: 150px;
                                 border-radius: 50%;
                                 background-size: cover;
                                 background-position: center;
 
-                                &.PH{
+                                &.PH {
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
@@ -271,18 +312,24 @@ body{
                             }
                         }
                     }
-                    .right-side{
+
+                    .right-side {
                         display: flex;
                         flex-direction: column;
                         gap: 70px;
 
-                        .input-container{
+                        .input-container {
                             display: grid;
                             gap: 12px;
                             position: relative;
                             width: 100%;
 
-                            label{color: $blue-color; font-weight: bold; font-size: 24px;}
+                            label {
+                                color: $blue-color;
+                                font-weight: bold;
+                                font-size: 24px;
+                            }
+
                             input {
                                 padding: 10px 10px;
                                 color: #fff;
@@ -291,16 +338,18 @@ body{
                                 outline: none;
                                 border-bottom: 2px solid #fff;
                                 font-size: 17px;
-                            
+
                                 /* Remove the calendar icon */
                                 &::-webkit-calendar-picker-indicator {
-                                  position: relative;
-                                  width: 65%;
-                                  z-index: 1; /* Set a lower z-index value for the indicator */
-                                  background-color: rgba(173, 216, 230, 0);
-                                  opacity: 0;
+                                    position: relative;
+                                    width: 65%;
+                                    z-index: 1;
+                                    /* Set a lower z-index value for the indicator */
+                                    background-color: rgba(173, 216, 230, 0);
+                                    opacity: 0;
                                 }
                             }
+
                             select {
                                 padding: 10px 10px;
                                 width: 100%;
@@ -324,46 +373,54 @@ body{
                         }
                     }
                 }
-                form.login{
+
+                form.login {
                     margin-top: 60px;
                     margin-left: 0%;
-                    .login{
+
+                    .login {
                         width: 60%;
                     }
                 }
             }
-            .error-section{
+
+            .error-section {
                 width: 23vw;
                 margin-right: 50px;
 
-                h3{
+                h3 {
                     color: #fff;
                     font-size: 20px;
                     margin-bottom: 15px;
                     display: flex;
                     align-items: end;
                     justify-content: space-between;
-                    span{ color: $red-color; font-size: 24px;}
+
+                    span {
+                        color: $red-color;
+                        font-size: 24px;
+                    }
                 }
-                *.__container{
+
+                *.__container {
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
                     // box-shadow: $normal-shadow;
                     padding-top: 15px;
                     border-top: 2px solid #ffffff38;
-                    
-                    > *{
+
+                    >* {
                         background: linear-gradient(45deg, $red-color, $dark-red-color);
                         padding: 5px 10px;
                         color: $L-background-color;
                         font-size: 16px;
                     }
                 }
+
+                
             }
         }
     }
-    
+
 }
-
-
