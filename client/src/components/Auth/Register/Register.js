@@ -4,11 +4,17 @@ import DarkPyramid from '../../../assets/dark-pyramids.svg';
 
 import './Register.scss';
 import { convertToBase64 } from '../../../services/utilService';
+import { register } from '../../../services/authService';
 
 export default function Register() {
   const [isLogin, setIsLogin] = useState(true);
   const [isNextClicked, setIsNextClicked] = useState(false);
   const [authData, setAuthData] = useState({ fullName: '', nickname: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '', gender: '', dateOfBirth: '' });
+  async function registerHandler(e){
+    e.preventDefault();
+    const user = await register(authData);
+    console.log(user)
+  }
   return (
     <section className="startscreen">
       <header className="startscreen">
@@ -28,7 +34,7 @@ export default function Register() {
         </div>
         <div className='forms-container'>
           {isLogin !== undefined ? (
-            <form className={`form-transition ${isLogin ? 'form-HIDDEN' : 'form-VISIBLE'}`}>
+            <form onSubmit={registerHandler} className={`form-transition ${isLogin ? 'form-HIDDEN' : 'form-VISIBLE'}`}>
               <div className='register'>
                 {!isNextClicked && (
                   <div className='top-container'>
