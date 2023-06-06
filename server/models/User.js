@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: [2, 'Name must have at least 2 characters!'],
-        maxlength: [10, 'Name must not have more than 10 characters!']
+        maxlength: [20, 'Name must not have more than 20 characters!']
     },
     nickname: {
         type: String,
@@ -38,7 +38,15 @@ const userSchema = new mongoose.Schema({
     imageId: {
         type: String,
         required: true
-    }
+    },
+    gender: {
+        type: String,
+        required: true,
+    },
+    dateOfBirth: {
+        type: String,
+        required: true,
+    },
 });
 
 userSchema.pre("save", function (next) {
