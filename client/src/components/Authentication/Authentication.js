@@ -10,6 +10,7 @@ export default function Authentication() {
   const [isLogin, setIsLogin] = useState(true);
   const [isNextClicked, setIsNextClicked] = useState(false);
   const [authData, setAuthData] = useState({ fullName: '', nickname: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '', gender: '', dateOfBirth: '' });
+  const [errors, setErrors] = useState({fullName: '', nickname: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '', gender: '', dateOfBirth: ''});
   async function registerHandler(e){
     e.preventDefault();
     const user = await register(authData);
@@ -19,6 +20,13 @@ export default function Authentication() {
     e.preventDefault();
     const data = {email: authData.email, password: authData.password}
     const user = await login(data);
+  }
+  function passwordValidator(){
+    if(authData.password != authData.repeatPassword){
+      setErrors({...errors, password: 'Passwords must be equal!'})
+    }else {
+      setErrors({...errors, password: ''})
+    }
   }
   return (
     <section className="startscreen">
@@ -91,6 +99,7 @@ export default function Authentication() {
                         type="password"
                         className="first-name"
                         placeholder='Repeat ur password ...'
+                        onBlur={passwordValidator}
                         onChange={(e) => setAuthData({ ...authData, repeatPassword: e.target.value })}
                       />
                     </div>
@@ -224,8 +233,13 @@ export default function Authentication() {
         <div className='error-section'>
           <h3>ERROR <span>!!!</span></h3>
           <div className='__container'>
-            <div>Name is not valid!</div>
-            <div>Email is not valid!</div>
+            {/* <div>Name is not valid!</div>
+            <div>Email is not valid!</div> */}
+            { Object.values(errors).map((error) => {
+              if(error != ''){
+                return <div>{error}</div>
+              }
+            })}
           </div>
         </div>
       </div>
