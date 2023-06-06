@@ -4,11 +4,22 @@ import DarkPyramid from '../../../assets/dark-pyramids.svg';
 
 import './Register.scss';
 import { convertToBase64 } from '../../../services/utilService';
+import { login, register } from '../../../services/authService';
 
 export default function Register() {
   const [isLogin, setIsLogin] = useState(true);
   const [isNextClicked, setIsNextClicked] = useState(false);
-  const [authData, setAuthData] = useState({ firstName: '', lastName: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '' });
+  const [authData, setAuthData] = useState({ fullName: '', nickname: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '', gender: '', dateOfBirth: '' });
+  async function registerHandler(e){
+    e.preventDefault();
+    const user = await register(authData);
+    console.log(user)
+  }
+  async function loginHandler(e){
+    e.preventDefault();
+    const data = {email: authData.email, password: authData.password}
+    const user = await login(data);
+  }
   return (
     <section className="startscreen">
       <header className="startscreen">
@@ -30,24 +41,24 @@ export default function Register() {
         </div>
         <div className='forms-container'>
           {isLogin !== undefined ? (
-            <form className={`form-transition ${isLogin ? 'form-HIDDEN' : 'form-VISIBLE'}`}>
+            <form onSubmit={registerHandler} className={`form-transition ${isLogin ? 'form-HIDDEN' : 'form-VISIBLE'}`}>
               <div className='register'>
                 {!isNextClicked && (
                   <div className='top-container'>
                     <div className='input-container first-name'>
-                      <label>First name <span>*</span></label>
+                      <label>Full Name <span>*</span></label>
                       <input
                         type="text"
-                        placeholder='Fill in ur first name ...'
-                        onChange={(e) => setAuthData({ ...authData, firstName: e.target.value })}
+                        placeholder='Fill in ur full name ...'
+                        onChange={(e) => setAuthData({ ...authData, fullName: e.target.value })}
                       />
                     </div>
                     <div className='input-container last-name'>
-                      <label>Last name <span>*</span></label>
+                      <label>Nickname <span>*</span></label>
                       <input
                         type="text"
-                        placeholder='Fill in ur last name ...'
-                        onChange={(e) => setAuthData({ ...authData, lastName: e.target.value })}
+                        placeholder='Fill in ur nickname ...'
+                        onChange={(e) => setAuthData({ ...authData, nickname: e.target.value })}
                       />
                     </div>
                     <div className='input-container email'>
@@ -144,7 +155,7 @@ export default function Register() {
                             <input
                                 type="date"
                                 class="custom-date-input"
-                                onChange={(e) => setAuthData({ ...authData, date: e.target.value })}
+                                onChange={(e) => setAuthData({ ...authData, dateOfBirth: e.target.value })}
                             />
                         </div>
                     </div>
@@ -179,7 +190,7 @@ export default function Register() {
             </form>
           ) : null}
           {isLogin !== undefined ? (
-            <form className={`form-transition login ${isLogin ? 'form-VISIBLE' : 'form-HIDDEN'}`}>
+            <form onSubmit={loginHandler} className={`form-transition login ${isLogin ? 'form-VISIBLE' : 'form-HIDDEN'}`}>
               <div className='login'>
                 <div className='top-container'>
                   <div className='input-container email'>
@@ -187,13 +198,15 @@ export default function Register() {
                     <input
                       type="text"
                       placeholder='Fill in ur email ...'
+                      onChange={(e) => setAuthData({...authData, email: e.target.value})}
                     />
                   </div>
                   <div className='input-container first-name'>
                     <label>Password <span>*</span></label>
                     <input
-                      type="text"
+                      type="password"
                       placeholder='Fill in ur password ...'
+                      onChange={(e) => setAuthData({...authData, password: e.target.value})}
                     />
                   </div>
                 </div>
