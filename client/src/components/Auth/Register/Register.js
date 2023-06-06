@@ -4,7 +4,7 @@ import DarkPyramid from '../../../assets/dark-pyramids.svg';
 
 import './Register.scss';
 import { convertToBase64 } from '../../../services/utilService';
-import { register } from '../../../services/authService';
+import { login, register } from '../../../services/authService';
 
 export default function Register() {
   const [isLogin, setIsLogin] = useState(true);
@@ -14,6 +14,11 @@ export default function Register() {
     e.preventDefault();
     const user = await register(authData);
     console.log(user)
+  }
+  async function loginHandler(e){
+    e.preventDefault();
+    const data = {email: authData.email, password: authData.password}
+    const user = await login(data);
   }
   return (
     <section className="startscreen">
@@ -182,7 +187,7 @@ export default function Register() {
             </form>
           ) : null}
           {isLogin !== undefined ? (
-            <form className={`form-transition ${isLogin ? 'form-VISIBLE' : 'form-HIDDEN'}`}>
+            <form onSubmit={loginHandler} className={`form-transition ${isLogin ? 'form-VISIBLE' : 'form-HIDDEN'}`}>
               <div className='login'>
                 <div className='top-container'>
                   <div className='input-container email'>
@@ -190,6 +195,7 @@ export default function Register() {
                     <input
                       type="text"
                       placeholder='Fill in ur email ...'
+                      onChange={(e) => setAuthData({...authData, email: e.target.value})}
                     />
                   </div>
                   <div className='input-container first-name'>
@@ -197,6 +203,7 @@ export default function Register() {
                     <input
                       type="text"
                       placeholder='Fill in ur password ...'
+                      onChange={(e) => setAuthData({...authData, password: e.target.value})}
                     />
                   </div>
                 </div>
