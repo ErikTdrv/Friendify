@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const cloudinary = require('cloudinary');
-const { register } = require('../services/authService');
+const { register, login } = require('../services/authService');
+
 
 router.post('/register', async (req, res) => {
     const data = req.body;
@@ -27,6 +28,21 @@ router.post('/register', async (req, res) => {
         console.log(error);
         await cloudinary.v2.uploader.destroy(profilePhotoId)
         res.status(400).json({ error: error.message });
+    }
+})
+router.post('/login', async (req,res) => {
+    const data = req.body;
+    try {
+        const user = await login(data);
+        res.cookie("auth", user.cookie, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true,
+          });
+          console.log(user)
+          res.status(201).json(user);
+        } catch (error) {
+          res.status(400).json({ error: error.message });
     }
 })
 
