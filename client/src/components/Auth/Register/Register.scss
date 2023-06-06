@@ -21,8 +21,11 @@ body{
                 align-items: center;
                 gap: 50px;
     
-                img{
-                    
+                .logo{
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 50px;
+                    width: 30%;
                 }
                 h1{
                     font-size: 85px;
@@ -56,7 +59,7 @@ body{
                 z-index: 5;
                 padding-top: 100px;
                 padding-right: 20px;
-                width: 30%;
+                width: 45vw;
                 img{
                     width: 100%;
                 }
@@ -85,7 +88,7 @@ body{
 
             .forms-container{
                 position: relative;
-                width: 835px;
+                width: 100%;
                 height: 100%;
                 background: linear-gradient(90deg, #ffffff00 0%, #ffffff32 100%);
                 backdrop-filter: blur(50px);
@@ -167,6 +170,7 @@ body{
                             }
                         }
                     }
+                    .login .top-container{ columns: 1; width: 100%;}
                     .bottom-container{
                         padding-top: 50px;
                         display: flex;
@@ -297,7 +301,7 @@ body{
                                   opacity: 0;
                                 }
                             }
-                             select {
+                            select {
                                 padding: 10px 10px;
                                 width: 100%;
                                 border: none;
@@ -316,16 +320,43 @@ body{
                                 background-position: 95% center;
                                 background-size: 20px;
                                 /* Styling options */
-                                option {
-                                border-radius: 10px;
-
-                                &:hover {
-                                    background: $blue-color;
-                                    color: #ff0000;
-                                }
-                                }
                             }
                         }
+                    }
+                }
+                form.login{
+                    margin-left: 0%;
+                    .login{
+                        width: 80%;
+                    }
+                }
+            }
+            .error-section{
+                width: 23vw;
+                margin-right: 50px;
+
+                h3{
+                    color: #fff;
+                    font-size: 20px;
+                    margin-bottom: 15px;
+                    display: flex;
+                    align-items: end;
+                    justify-content: space-between;
+                    span{ color: $red-color; font-size: 24px;}
+                }
+                *.__container{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    box-shadow: $normal-shadow;
+                    padding-top: 15px;
+                    border-top: 2px solid #ffffff38;
+                    
+                    > *{
+                        background: linear-gradient(45deg, $red-color, $dark-red-color);
+                        padding: 5px 10px;
+                        color: $L-background-color;
+                        font-size: 16px;
                     }
                 }
             }

@@ -12,8 +12,10 @@ export default function Register() {
   return (
     <section className="startscreen">
       <header className="startscreen">
-        <img src={darkLogo} alt="Dark Friendify Logo" />
-        <h1>Friendify</h1>
+        <div className='logo'>
+          <img src={darkLogo} alt="Dark Friendify Logo" />
+          <h1>Friendify</h1>
+        </div>
         <div className="startscreen__line"></div>
         {isLogin ? (
           <h3>Register</h3>
@@ -177,7 +179,7 @@ export default function Register() {
             </form>
           ) : null}
           {isLogin !== undefined ? (
-            <form className={`form-transition ${isLogin ? 'form-VISIBLE' : 'form-HIDDEN'}`}>
+            <form className={`form-transition login ${isLogin ? 'form-VISIBLE' : 'form-HIDDEN'}`}>
               <div className='login'>
                 <div className='top-container'>
                   <div className='input-container email'>
@@ -205,6 +207,13 @@ export default function Register() {
               </div>
             </form>
           ) : null}
+        </div>
+        <div className='error-section'>
+          <h3>ERROR <span>!!!</span></h3>
+          <div className='__container'>
+            <div>Name is not valid!</div>
+            <div>Email is not valid!</div>
+          </div>
         </div>
       </div>
     </section>
