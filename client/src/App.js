@@ -1,10 +1,11 @@
 import './App.css';
-import Register from './components/Auth/Register/Register';
+import Authentication from './components/Authentication/Authentication';
+
 
 function App() {
   return (
     <div className="Friendify">
-     <Register/>
+     <Authentication />
     </div>
   );
 }

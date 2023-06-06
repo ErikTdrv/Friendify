@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import darkLogo from '../../../assets/dark-friendify-logo.svg';
-import DarkPyramid from '../../../assets/dark-pyramids.svg';
+import darkLogo from '../../assets/dark-friendify-logo.svg';
+import DarkPyramid from '../../assets/dark-pyramids.svg';
 
-import './Register.scss';
-import { convertToBase64 } from '../../../services/utilService';
-import { login, register } from '../../../services/authService';
+import './Authentication.scss';
+import { convertToBase64 } from '../../services/utilService';
+import { login, register } from '../../services/authService';
 
-export default function Register() {
+export default function Authentication() {
   const [isLogin, setIsLogin] = useState(true);
   const [isNextClicked, setIsNextClicked] = useState(false);
   const [authData, setAuthData] = useState({ fullName: '', nickname: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '', gender: '', dateOfBirth: '' });
