@@ -8,7 +8,7 @@ import { convertToBase64 } from '../../../services/utilService';
 export default function Register() {
   const [isLogin, setIsLogin] = useState(true);
   const [isNextClicked, setIsNextClicked] = useState(false);
-  const [authData, setAuthData] = useState({ firstName: '', lastName: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '' });
+  const [authData, setAuthData] = useState({ firstName: '', lastName: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '', gender: '', dateOfBirth: '' });
   return (
     <section className="startscreen">
       <header className="startscreen">
@@ -141,7 +141,7 @@ export default function Register() {
                             <label>Date of birth</label>
                             <input
                                 type="date"
-                                onChange={(e) => setAuthData({ ...authData, date: e.target.value })}
+                                onChange={(e) => setAuthData({ ...authData, dateOfBirth: e.target.value })}
                             />
                         </div>
                     </div>
