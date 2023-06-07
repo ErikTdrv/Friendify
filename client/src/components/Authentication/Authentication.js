@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import darkLogo from '../../assets/dark-friendify-logo.svg';
 import DarkPyramid from '../../assets/dark-pyramids.svg';
 
@@ -9,6 +9,7 @@ import { login, register } from '../../services/authService';
 export default function Authentication() {
   const [isLogin, setIsLogin] = useState(true);
   const [isNextClicked, setIsNextClicked] = useState(false);
+  const [switchAnimationClass, setSwitchAnimationClass] = useState('');
   const [authData, setAuthData] = useState({ fullName: '', nickname: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '', gender: '', dateOfBirth: '' });
   const [errors, setErrors] = useState({fullName: '', nickname: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '', gender: '', dateOfBirth: ''});
   async function registerHandler(e){
@@ -28,6 +29,13 @@ export default function Authentication() {
       setErrors({...errors, password: ''})
     }
   }
+  useEffect(() => {
+    setSwitchAnimationClass('switch-animation');
+    requestAnimationFrame(() => {
+      setSwitchAnimationClass('');
+    });
+  }, [isNextClicked]);
+  
   return (
     <section className="startscreen">
       <header className="startscreen">
@@ -50,7 +58,7 @@ export default function Authentication() {
         <div className='forms-container'>
           {isLogin !== undefined ? (
             <form onSubmit={registerHandler} className={`form-transition ${isLogin ? 'form-HIDDEN' : 'form-VISIBLE'}`}>
-              <div className='register'>
+              <div className={`register ${isNextClicked ? 'switch' : 'switch_2'} ${switchAnimationClass}`}>
                 {!isNextClicked && (
                   <div className='top-container'>
                     <div className='input-container first-name'>
@@ -106,44 +114,42 @@ export default function Authentication() {
                   </div>
                 )}
                 {isNextClicked && (
-                    <h2 className='title'>Optional credentials ( changeable later )</h2>
-                )}
-                {isNextClicked && (
+                    <div>
+                      <h2 className='title'>Optional credentials ( changeable later )</h2>
+                      <div className='second'>
+                        <div className='profile-picture'>
+                          <label>Profile picture</label>
+                          {authData.profilePicture ? (
+                          <div
+                              className="image"
+                              style={{ 
+                                  backgroundImage: `url(${authData.profilePicture})`, 
+                              }}
+                          ></div>
+                          ) : (
+                          <div
+                              className="image PH"
+                              style={{ 
 
-                  <div className='second'>
-                    <div className='profile-picture'>
-                        <label>Profile picture</label>
-                        {authData.profilePicture ? (
-                        <div
-                            className="image"
-                            style={{ 
-                                backgroundImage: `url(${authData.profilePicture})`, 
-                             }}
-                        ></div>
-                        ) : (
-                        <div
-                            className="image PH"
-                            style={{ 
+                              }}
+                          >
+                              <h2>???</h2>
+                          </div>
+                          )}
 
-                            }}
-                        >
-                            <h2>???</h2>
-                        </div>
-                        )}
-
-                        <label className='add' htmlFor="profilepicture">
-                        <span>+</span> Add Profile Picture
-                        <input type='file' id='profilepicture'
-                            onChange={async (e) => {
-                            if (e.target.files[0]) {
-                                setAuthData({
-                                ...authData,
-                                profilePicture: await convertToBase64(e.target.files[0]),
-                                });
-                            }
-                            }}
-                        />
-                        </label>
+                          <label className='add' htmlFor="profilepicture">
+                          <span>+</span> Add Profile Picture
+                          <input type='file' id='profilepicture'
+                              onChange={async (e) => {
+                              if (e.target.files[0]) {
+                                  setAuthData({
+                                  ...authData,
+                                  profilePicture: await convertToBase64(e.target.files[0]),
+                                  });
+                              }
+                              }}
+                          />
+                          </label>
                     </div>
 
                     <div className='right-side'>
@@ -169,6 +175,7 @@ export default function Authentication() {
                         </div>
                     </div>
                   </div>
+                    </div>
                 )}
                 <div className='bottom-container'>
                   <a onClick={() => setIsLogin(false)} className={`switch-btn ${isNextClicked ? 'btn-HIDDEN' : 'btn-VISIBLE'}`}> Do you already have an account? <span>Login in here!</span></a>
@@ -231,16 +238,19 @@ export default function Authentication() {
           ) : null}
         </div>
         <div className='error-section'>
-          <h3>ERROR <span>!!!</span></h3>
-          <div className='__container'>
-            {/* <div>Name is not valid!</div>
-            <div>Email is not valid!</div> */}
-            { Object.values(errors).map((error) => {
+        { Object.values(errors).map((error) => {
               if(error != ''){
-                return <div>{error}</div>
-              }
-            })}
-          </div>
+              return(
+                <div>
+                  <h3>ERROR <span>!!!</span></h3>
+                  <div className='__container'>
+                      <div>{error}</div>
+                  </div>
+                </div>
+              );}
+            })
+        }
+        
         </div>
       </div>
     </section>
