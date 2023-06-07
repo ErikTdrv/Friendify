@@ -118,10 +118,10 @@ body {
                         position: relative;
 
                         &.switch{
-                            animation: switchAnimation 0.8s ease-in-out;
+                            animation: switchAnimation 1.2s ease;
                         }
                         &.switch_2{
-                            animation: switchAnimation-2 0.8s ease-in-out;
+                            animation: switchAnimation-2 1.2s ease;
                         }
                     }
 
