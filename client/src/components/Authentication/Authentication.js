@@ -169,7 +169,7 @@ export default function Authentication() {
                             <label>Date of birth</label>
                             <input
                                 type="date"
-                                class="custom-date-input"
+                                className="custom-date-input"
                                 onChange={(e) => setAuthData({ ...authData, dateOfBirth: e.target.value })}
                             />
                         </div>
