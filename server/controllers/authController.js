@@ -23,14 +23,15 @@ router.post('/register', async (req, res) => {
             secure: true,
             sameSite: 'none',
         });
-        res.status(201).json(user);
+        res.json({ user, isSuccess: true });
     } catch (error) {
         console.log(error);
         await cloudinary.v2.uploader.destroy(profilePhotoId)
-        res.status(400).json({ error: error.message });
+        res.json({ error: error.message, isSuccess: false });
+
     }
 })
-router.post('/login', async (req,res) => {
+router.post('/login', async (req, res) => {
     const data = req.body;
     try {
         const user = await login(data);
@@ -38,10 +39,10 @@ router.post('/login', async (req,res) => {
             httpOnly: true,
             sameSite: "none",
             secure: true,
-          });
-          res.status(201).json(user);
-        } catch (error) {
-          res.status(400).json({ error: error.message });
+        });
+        res.json({ user, isSuccess: true });
+    } catch (error) {
+        res.json({ error: error.message, isSuccess: false });
     }
 })
 
