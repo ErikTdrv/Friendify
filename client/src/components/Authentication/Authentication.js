@@ -14,8 +14,9 @@ export default function Authentication() {
   const [errors, setErrors] = useState({ fullName: '', nickname: '', email: '', nationality: '', password: '', repeatPassword: '', profilePicture: '', gender: '', dateOfBirth: '' });
   async function registerHandler(e) {
     e.preventDefault();
-    const user = await register(authData);
-    console.log(user)
+    console.log(Object.values(errors))
+    // const user = await register(authData);
+    // console.log(user)
   }
   async function loginHandler(e) {
     e.preventDefault();
@@ -98,6 +99,7 @@ export default function Authentication() {
                           type="text"
                           placeholder='Fill in ur nickname ...'
                           onChange={(e) => setAuthData({ ...authData, nickname: e.target.value })}
+                          onBlur={(e) => validateInput(e, 'nickname')}
                         />
                       </div>
                       <div className='input-container email'>
@@ -106,6 +108,7 @@ export default function Authentication() {
                           type="text"
                           placeholder='Fill in ur email ...'
                           onChange={(e) => setAuthData({ ...authData, email: e.target.value })}
+                          onBlur={(e) => validateInput(e, 'email')}
                         />
                       </div>
                       <div className='input-container nationality'>
@@ -114,6 +117,7 @@ export default function Authentication() {
                           type="text"
                           placeholder='Fill in ur nationality ...'
                           onChange={(e) => setAuthData({ ...authData, nationality: e.target.value })}
+                          onBlur={(e) => validateInput(e, 'nationality')}
                         />
                       </div>
                       <div className='input-container password'>
@@ -122,6 +126,7 @@ export default function Authentication() {
                           type="password"
                           placeholder='Fill in ur password ...'
                           onChange={(e) => setAuthData({ ...authData, password: e.target.value })}
+                          onBlur={(e) => validateInput(e, 'password')}
                         />
                       </div>
                       <div className='input-container repeat-password'>
@@ -130,7 +135,10 @@ export default function Authentication() {
                           type="password"
                           className="first-name"
                           placeholder='Repeat ur password ...'
-                          onBlur={passwordValidator}
+                          onBlur={(e) => {
+                            passwordValidator()
+                            validateInput(e, 'repeat-password')
+                          }}
                           onChange={(e) => setAuthData({ ...authData, repeatPassword: e.target.value })}
                         />
                       </div>
@@ -261,19 +269,19 @@ export default function Authentication() {
             ) : null}
           </div>
           <div className='error-section'>
+                  <div>
+                    <h3>ERROR <span>!!!</span></h3>
             {Object.values(errors).map((error) => {
               if (error != '') {
                 return (
-                  <div>
-                    <h3>ERROR <span>!!!</span></h3>
                     <div className='__container'>
                       <div>{error}</div>
                     </div>
-                  </div>
                 );
               }
             })
-            }
+          }
+          </div>
 
           </div>
         </div>
