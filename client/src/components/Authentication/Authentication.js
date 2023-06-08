@@ -51,6 +51,10 @@ export default function Authentication() {
       }
     }else if(type == 'nationality' && current.length > 12){
       setErrors({ ...errors, [type]: 'Nationality must not have more than 12 characters!' })
+    }else if(type == 'password' && (current.length < 6 || current.length > 15)){
+      setErrors({ ...errors, [type]: 'Password must have 6 - 15 characters!' })
+    }else if(type == 'dateOfBirth'){
+
     }
   }
 
@@ -181,7 +185,7 @@ export default function Authentication() {
                               <option value="">Select gender</option>
                               <option value="male">Male</option>
                               <option value="female">Female</option>
-                              <option value="other">Dog</option>
+                              <option value="other">Other</option>
                             </select>
                           </div>
                           <div className='input-container first-name'>
