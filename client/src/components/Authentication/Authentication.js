@@ -301,6 +301,14 @@ export default function Authentication() {
           </div>
         </div>
       </div>
+      <footer>
+        <ul>
+          <li className='support'><a href=''>Support</a></li>
+          <li className='credits'>
+            Made by <a href='https://www.instagram.com/todorowwww/' target='_blank'>Erik Todorov</a> and <a href='https://www.instagram.com/brendan_024/' target='_blank'>Brendan Kersten</a></li>
+          <li className='theme_toggler'>Dark theme</li>
+        </ul>
+      </footer>
     </section>
   );
 }

@@ -464,6 +464,28 @@ body {
                 
             }
         }
+        footer{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 40px 7%;
+
+            ul{
+                width: 100%;
+                display: flex;
+                gap: 70px;
+
+                li{
+                    list-style: none;
+                    color: $L-background-color;
+
+                    a{
+                        color: $L-background-color;
+                    }
+                }
+            }
+        }
     }
 
 }

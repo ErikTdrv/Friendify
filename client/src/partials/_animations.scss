@@ -54,7 +54,7 @@
   .animated-path {
     stroke-dashoffset: 0;
     stroke-dasharray: 85.53 85.53;
-    animation: dash 0.25s linear infinite;
+    animation: dash 0.15s linear infinite;
   }
   @keyframes dash {
     to {
@@ -70,13 +70,14 @@
     }
     5%{
         backdrop-filter: blur(100px);
+        background: linear-gradient(to right, $blue-color, $red-color);
     }
     25%{
         opacity: 0.2;
     }
     50%{
         opacity: 0.3;
-        background-color: $purple-color;
+        background: linear-gradient(to right, $blue-color, $red-color);
         backdrop-filter: blur(500px);
     }
     75%{
@@ -84,6 +85,7 @@
     }
     95%{
         backdrop-filter: blur(100px);
+        background: linear-gradient(to right, $blue-color, $red-color);
     }
     100%{
         opacity: 0;
@@ -99,13 +101,14 @@
     }
     5%{
         backdrop-filter: blur(100px);
+        background: linear-gradient(to right, $red-color, $blue-color);
     }
     25%{
         opacity: 0.2;
     }
     50%{
         opacity: 0.3;
-        background-color: $blue-color;
+        background: linear-gradient(to right, $red-color, $blue-color);
         backdrop-filter: blur(500px);
     }
     75%{
@@ -113,6 +116,7 @@
     }
     95%{
         backdrop-filter: blur(100px);
+        background: linear-gradient(to right, $red-color, $blue-color);
     }
     100%{
         opacity: 0;
