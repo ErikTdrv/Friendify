@@ -93,6 +93,11 @@ export default function Authentication() {
         <div className='forms-container'>
           {isLogin !== undefined ? (
             <form onSubmit={registerHandler} className={`form-transition ${isLogin ? 'form-HIDDEN' : 'form-VISIBLE'}`}>
+              <div className={`loading-icon ${isNextClicked ? 'left' : 'right'}`}>
+                <svg width="300" height="300" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="animated-path" d="M48.6 60C22.8 60 10 86.6 10 100C10 113.4 22.8 140 48.6 140C87.2 140 112.8 60 151.4 60C177.2 60 190 86.6 190 100C190 113.4 177.2 140 151.4 140C112.8 140 87.2 60 48.6 60Z" stroke="white" stroke-width="16" stroke-linecap="round" stroke-dasharray="85.53 85.53"/>
+                </svg>
+              </div>
               <div className={`register ${isNextClicked ? 'switch' : 'switch_2'} ${switchAnimationClass}`}>
                 {!isNextClicked && (
                   <div className='top-container'>
@@ -294,7 +299,6 @@ export default function Authentication() {
             })
             }
           </div>
-
         </div>
       </div>
     </section>

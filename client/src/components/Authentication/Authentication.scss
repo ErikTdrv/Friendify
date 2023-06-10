@@ -111,18 +111,49 @@ body {
                     top: 0px;
                     bottom: 0;
 
+                    .loading-icon{
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        z-index: -1;
+
+                        opacity: 0;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 50px;
+                        transition: 0.3s ease;
+                       
+                        &.left{
+                            animation: loading-left 1s ease-in-out;
+                        }
+                        &.right{
+                            animation: loading-right 1s ease-in-out;
+                        }
+                    }
+
                     .register,
                     .login {
                         width: 100%;
                         padding: 10px 60px;
                         position: relative;
+                        overflow: hidden;
+
+                        .second-top-container{
+                            position: absolute;
+                            transform: translateX(-500px);
+                        }
 
                         &.switch{
-                            animation: switchAnimation 1.2s ease;
+                            animation: switchAnimation 1s ease-in-out;
                         }
                         &.switch_2{
-                            animation: switchAnimation-2 1.2s ease;
+                            animation: switchAnimation-2 1s ease-in-out;
                         }
+
                     }
 
                     &:nth-child(1) {
